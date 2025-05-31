@@ -1,12 +1,15 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-gensokanji-white: #ffffff;
+  --color-gensokanji-midnight: #293040;
+
+  --background: var(--color-gensokanji-white);
+  --foreground: var(--color-gensokanji-midnight);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-gensokanji-midnight);
+    --foreground: var(--color-gensokanji-white);
   }
 }
 
