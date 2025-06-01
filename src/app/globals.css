@@ -1,7 +1,53 @@
-:root {
-  --color-gensokanji-white: #ffffff;
-  --color-gensokanji-midnight: #293040;
+@font-face {
+  font-family: "Source Han Sans CN";
+  src: url("../assets/font/Source_Han_Sans/SourceHanSansCN-ExtraLight_Subset.woff2") format("woff2"),
+    url("../assets/font/Source_Han_Sans/SourceHanSansCN-ExtraLight_Subset.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "Source Han Sans TW";
+  src: url("../assets/font/Source_Han_Sans/SourceHanSansTW-ExtraLight_Subset.woff2") format("woff2"),
+    url("../assets/font/Source_Han_Sans/SourceHanSansTW-ExtraLight_Subset.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Han Sans HK";
+  src: url("../assets/font/Source_Han_Sans/SourceHanSansHK-ExtraLight_Subset.woff2") format("woff2"),
+    url("../assets/font/Source_Han_Sans/SourceHanSansHK-ExtraLight_Subset.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Han Sans SC Subset Lv";
+  src: url("../assets/font/Source_Han_Sans/SourceHanSansSC-ExtraLight_Subset-Lv.woff2")
+      format("woff2"),
+    url("../assets/font/Source_Han_Sans/SourceHanSansSC-ExtraLight_Subset-Lv.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Han Sans CN";
+  src: url("../assets/font/Source_Han_Sans/SourceHanSansCN-Light_Subset.woff2") format("woff2"),
+    url("../assets/font/Source_Han_Sans/SourceHanSansCN-Light_Subset.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Han Sans TW";
+  src: url("../assets/font/Source_Han_Sans/SourceHanSansTW-Light_Subset.woff2") format("woff2"),
+    url("../assets/font/Source_Han_Sans/SourceHanSansTW-Light_Subset.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+:root {
   --background: var(--color-gensokanji-white);
   --foreground: var(--color-gensokanji-midnight);
 }

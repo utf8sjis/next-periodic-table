@@ -1,3 +1,4 @@
+import { gensokanjiColors } from "@/constants/colors";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -6,13 +7,30 @@ export const metadata: Metadata = {
   description: "An interactive periodic table built with Next.js",
 };
 
+function getGensokanjiColorVariables(): React.CSSProperties {
+  return {
+    "--color-gensokanji-white": gensokanjiColors.white,
+    "--color-gensokanji-black": gensokanjiColors.black,
+    "--color-gensokanji-midnight": gensokanjiColors.midnight,
+    "--color-gensokanji-navy": gensokanjiColors.navy,
+    "--color-gensokanji-slate": gensokanjiColors.slate,
+    "--color-gensokanji-steel": gensokanjiColors.steel,
+    "--color-gensokanji-moon-muted": gensokanjiColors.moonMuted,
+    "--color-gensokanji-moon-vivid": gensokanjiColors.moonVivid,
+  } as React.CSSProperties;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const rootCssVariables = {
+    ...getGensokanjiColorVariables(),
+  };
+
   return (
-    <html lang="ja">
+    <html lang="ja" style={rootCssVariables}>
       <body>{children}</body>
     </html>
   );

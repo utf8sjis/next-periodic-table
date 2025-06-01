@@ -1,0 +1,7 @@
+.base {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 8px;
+  width: max-content;
+  padding: 10px;
+}

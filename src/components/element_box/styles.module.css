@@ -1,0 +1,20 @@
+.base {
+  grid-row-start: var(--row);
+  grid-column-start: var(--col);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border: 2px solid var(--color);
+  border-radius: 5px;
+  background-color: var(--color);
+  font-size: 32px;
+  font-weight: 100;
+  color: var(--text-color);
+  font-family: var(--font-family, sans-serif);
+}
+
+.display {
+  transform: translateY(-2px);
+}
