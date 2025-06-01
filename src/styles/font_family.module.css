@@ -1,0 +1,12 @@
+.zhCN {
+  font-family: var(--font-family-zh-cn);
+}
+.zhTW {
+  font-family: var(--font-family-zh-tw);
+}
+.zhHK {
+  font-family: var(--font-family-zh-hk);
+}
+.pinyin {
+  font-family: var(--font-family-pinyin);
+}

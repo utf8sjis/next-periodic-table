@@ -1,0 +1,45 @@
+:root {
+  /* page styling */
+  --page-padding-horizontal: 80px;
+
+  /* theme colors */
+  --color-gensokanji-white: #ffffff;
+  --color-gensokanji-black: #4a5155;
+  --color-gensokanji-midnight: #293040;
+  --color-gensokanji-navy: #424c66;
+  --color-gensokanji-slate: #758ba3;
+  --color-gensokanji-steel: #a6bbca;
+  --color-gensokanji-moon-muted: #e1eb7b;
+  --color-gensokanji-moon-vivid: #f0f645;
+
+  /* periodic table colors */
+  --color-periodic-h: #fdfdfd;
+  --color-periodic-he: #61caff;
+  --color-periodic-li: #e273ab;
+  --color-periodic-be: #b8b8b8;
+  --color-periodic-b: #d39d56;
+  --color-periodic-c: #d47663;
+  --color-periodic-n: #bd75bd;
+  --color-periodic-o: #34ada5;
+  --color-periodic-f: #bcdb57;
+  --color-periodic-ca: #eea24c;
+  --color-periodic-zn: #f5d03d;
+  --color-periodic-fe: #ff6262;
+  --color-periodic-pt: #a3a3a3;
+  --color-periodic-la: #82c76d;
+  --color-periodic-ac: #64a0dd;
+  --color-periodic-trans: #858585;
+
+  --color-periodic-content: #ffffff;
+  --color-periodic-h-content: #5a5a5a;
+
+  /* font families */
+  --font-family-zh-cn: "Source Han Sans CN", "Source Han Sans SC Subset Lv", "Noto Sans SC",
+    "PingFang SC", "Microsoft YaHei", "sans-serif";
+  --font-family-zh-tw: "Source Han Sans TW", "Source Han Sans CN", "Noto Sans TC", "PingFang TC",
+    "Microsoft JhengHei", "sans-serif";
+  --font-family-zh-hk: "Source Han Sans HK", "Source Han Sans CN", "Noto Sans TC", "PingFang TC",
+    "Microsoft JhengHei", "sans-serif";
+  --font-family-pinyin: "Source Han Sans TW", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+    "sans-serif";
+}

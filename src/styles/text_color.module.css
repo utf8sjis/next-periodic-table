@@ -1,0 +1,55 @@
+.h {
+  color: var(--color-periodic-h);
+}
+.he {
+  color: var(--color-periodic-he);
+}
+.li {
+  color: var(--color-periodic-li);
+}
+.be {
+  color: var(--color-periodic-be);
+}
+.b {
+  color: var(--color-periodic-b);
+}
+.c {
+  color: var(--color-periodic-c);
+}
+.n {
+  color: var(--color-periodic-n);
+}
+.o {
+  color: var(--color-periodic-o);
+}
+.f {
+  color: var(--color-periodic-f);
+}
+.ca {
+  color: var(--color-periodic-ca);
+}
+.zn {
+  color: var(--color-periodic-zn);
+}
+.fe {
+  color: var(--color-periodic-fe);
+}
+.pt {
+  color: var(--color-periodic-pt);
+}
+.la {
+  color: var(--color-periodic-la);
+}
+.ac {
+  color: var(--color-periodic-ac);
+}
+.trans {
+  color: var(--color-periodic-trans);
+}
+
+.h-content {
+  color: var(--color-periodic-h-content);
+}
+.content {
+  color: var(--color-periodic-content);
+}

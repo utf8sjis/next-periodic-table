@@ -1,15 +1,20 @@
+import clsx from "clsx";
+
 import { getElementDataBySymbol } from "@/utils/elements_data";
-import { periodicTableColors } from "@/constants/colors";
-import { periodicTableTextColors } from "@/constants/colors";
-import { fontFamily } from "@/constants/font_family";
 import type { ElementData } from "@/constants/elements_data";
 import styles from "./styles.module.css";
+import gridRow from "@/styles/grid_row.module.css";
+import gridColumn from "@/styles/grid_column.module.css";
+import textColor from "@/styles/text_color.module.css";
+import bgColor from "@/styles/bg_color.module.css";
+import borderColor from "@/styles/border_color.module.css";
+import fontFamily from "@/styles/font_family.module.css";
 
 interface ElementBoxProps {
   element: ElementData;
 }
 
-function getGridVariables(element: ElementData): React.CSSProperties {
+function getGridClasses(element: ElementData): string[] {
   let rowOffset = 0;
   let colOffset = 0;
 
@@ -24,41 +29,24 @@ function getGridVariables(element: ElementData): React.CSSProperties {
       break;
   }
 
-  return {
-    "--row": `${element.period + rowOffset}`,
-    "--col": `${element.group + colOffset}`,
-  } as React.CSSProperties;
-}
-
-function getColorVariables(element: ElementData): React.CSSProperties {
-  return {
-    "--color": periodicTableColors[element.categoryId],
-  } as React.CSSProperties;
-}
-
-function getTextColorVariables(element: ElementData): React.CSSProperties {
-  return {
-    "--text-color":
-      element.categoryId === "h" ? periodicTableTextColors.h : periodicTableTextColors.others,
-  } as React.CSSProperties;
-}
-
-function getFontFamilyVariables(locale: keyof typeof fontFamily): React.CSSProperties {
-  return {
-    "--font-family": fontFamily[locale].join(", "),
-  } as React.CSSProperties;
+  return [
+    gridRow[`start${element.period + rowOffset}`],
+    gridColumn[`start${element.group + colOffset}`],
+  ];
 }
 
 export default function ElementBox({ element }: ElementBoxProps) {
-  const cssVariables = {
-    ...getGridVariables(element),
-    ...getColorVariables(element),
-    ...getTextColorVariables(element),
-    ...getFontFamilyVariables("zh-tw"),
-  };
+  const classes = clsx(
+    styles.base,
+    ...getGridClasses(element),
+    textColor[element.categoryId === "h" ? "h-content" : "content"],
+    bgColor[element.categoryId],
+    borderColor[element.categoryId],
+    fontFamily.zhTW
+  );
 
   return (
-    <div className={styles.base} style={cssVariables}>
+    <div className={classes}>
       <div className={styles.display}>{element.name.zh.tw.display}</div>
     </div>
   );
