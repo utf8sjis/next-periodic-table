@@ -1,6 +1,4 @@
 .base {
-  grid-row-start: var(--row);
-  grid-column-start: var(--col);
   display: flex;
   align-items: center;
   justify-content: center;
