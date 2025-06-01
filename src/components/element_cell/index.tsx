@@ -10,7 +10,7 @@ import bgColor from "@/styles/bg_color.module.css";
 import borderColor from "@/styles/border_color.module.css";
 import fontFamily from "@/styles/font_family.module.css";
 
-interface ElementBoxProps {
+interface ElementCellProps {
   element: ElementData;
 }
 
@@ -35,7 +35,7 @@ function getGridClasses(element: ElementData): string[] {
   ];
 }
 
-export default function ElementBox({ element }: ElementBoxProps) {
+export default function ElementCell({ element }: ElementCellProps) {
   const classes = clsx(
     styles.base,
     ...getGridClasses(element),

@@ -1,4 +1,4 @@
-import ElementBox from "@/components/element_box";
+import ElementCell from "@/components/element_cell";
 import { elementsData } from "@/constants/elements_data";
 import styles from "./styles.module.css";
 
@@ -7,7 +7,7 @@ export default function PeriodicTable() {
     <div className={styles.container}>
       <div className={styles.base}>
         {elementsData.map((element) => (
-          <ElementBox key={element.number} element={element} />
+          <ElementCell key={element.number} element={element} />
         ))}
       </div>
     </div>
