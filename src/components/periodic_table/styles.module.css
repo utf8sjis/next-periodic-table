@@ -1,7 +1,16 @@
+.container {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-x: auto;
+  width: 100vw;
+}
+
 .base {
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   gap: 8px;
+  margin: 0 auto;
   width: max-content;
-  padding: 10px;
+  padding: 40px var(--page-padding-horizontal);
 }

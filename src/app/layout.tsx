@@ -20,6 +20,12 @@ function getGensokanjiColorVariables(): React.CSSProperties {
   } as React.CSSProperties;
 }
 
+function getPageStyleVariables(): React.CSSProperties {
+  return {
+    "--page-padding-horizontal": "80px",
+  } as React.CSSProperties;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +33,7 @@ export default function RootLayout({
 }>) {
   const rootCssVariables = {
     ...getGensokanjiColorVariables(),
+    ...getPageStyleVariables(),
   };
 
   return (
