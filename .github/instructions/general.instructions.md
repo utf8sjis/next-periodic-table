@@ -8,7 +8,6 @@ applyTo: "**"
 
 - Use imperative mood as if you are giving a command (e.g., Add, Fix, Update, Remove, Move, Use, Make, Don't)
 - Keep the message concise but descriptive (less than 50 characters)
-- Use lowercase except for proper nouns and abbreviations
 - Omit articles (a, an, the)
 
 ## Examples
