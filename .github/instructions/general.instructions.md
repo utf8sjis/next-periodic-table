@@ -22,3 +22,11 @@ Use CSS variables for element category colors
 Make element cards responsive on mobile and tablet views
 Don't use inline styles for element highlight effects
 ```
+
+## Working with Git
+
+When checking staged changes, use the following command to exclude the `pnpm-lock.yaml` file:
+
+```
+git --no-pager diff --staged -- . ':(exclude)pnpm-lock.yaml'
+```
