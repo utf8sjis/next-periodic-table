@@ -3,5 +3,5 @@
 }
 
 .main {
-  padding: 60px var(--page-padding-horizontal);
+  overflow-x: auto;
 }
