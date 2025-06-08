@@ -3,7 +3,7 @@ import "./variables.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Periodic Table v2",
+  title: "Next Periodic Table",
   description: "An interactive periodic table built with Next.js",
 };
 
