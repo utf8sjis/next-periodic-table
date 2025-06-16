@@ -2,15 +2,50 @@
 applyTo: "**"
 ---
 
-# Commit Message Convention
+# Development Language Rules
 
-## Guidelines
+## Code Comments and Documentation
 
-- Use imperative mood as if you are giving a command (e.g., Add, Fix, Update, Remove, Move, Use, Make, Don't)
-- Keep the message concise but descriptive (less than 50 characters)
-- Omit articles (a, an, the)
+- Use English for all code comments, documentation files, and commit messages
+- Variable names, function names, and other code identifiers must be in English
+- This rule does not apply to web content that will be visible to end users
+- User-facing content can be in any language appropriate for the target audience
 
-## Examples
+# Git Workflow and Commit Conventions
+
+Follow these steps when creating commits
+
+1. Check the status of changes
+
+   ```
+   git status
+   ```
+
+2. If no files are staged yet, stage all changes unless specified otherwise
+
+   ```
+   git add .
+   ```
+
+3. Alternatively, stage specific files only
+
+   ```
+   git add [file-path]
+   ```
+
+4. Review staged changes (excluding pnpm-lock.yaml)
+
+   ```
+   git --no-pager diff --staged -- . ':(exclude)pnpm-lock.yaml'
+   ```
+
+5. Create a commit with a well-formatted message following these guidelines:
+
+   - Use imperative mood as if you are giving a command (e.g., Add, Fix, Update, Remove, Move, Use, Make, Don't)
+   - Keep the message concise but descriptive (less than 50 characters)
+   - Omit articles (a, an, the)
+
+Commit Message Examples:
 
 ```
 Add hover effect to element cells
@@ -21,12 +56,4 @@ Move element search functionality to main navigation header
 Use CSS variables for element category colors
 Make element cards responsive on mobile and tablet views
 Don't use inline styles for element highlight effects
-```
-
-## Working with Git
-
-When checking staged changes, use the following command to exclude the `pnpm-lock.yaml` file:
-
-```
-git --no-pager diff --staged -- . ':(exclude)pnpm-lock.yaml'
 ```
