@@ -15,17 +15,17 @@ interface ElementCellProps {
 }
 
 function getGridClasses(element: ElementData): string[] {
-  let rowOffset = 0;
-  let colOffset = 0;
+  let rowOffset = 1;
+  let colOffset = 1;
 
   switch (element.categoryId) {
     case "la":
-      rowOffset = 2;
-      colOffset = element.number - getElementDataBySymbol("La").number;
+      rowOffset = 3;
+      colOffset = element.number - getElementDataBySymbol("La").number + 1;
       break;
     case "ac":
-      rowOffset = 2;
-      colOffset = element.number - getElementDataBySymbol("Ac").number;
+      rowOffset = 3;
+      colOffset = element.number - getElementDataBySymbol("Ac").number + 1;
       break;
   }
 
