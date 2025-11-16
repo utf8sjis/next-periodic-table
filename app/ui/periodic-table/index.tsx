@@ -1,7 +1,7 @@
-import ElementCell from "@/components/element_cell";
-import GuideCell from "@/components/guide_cell";
-import { elementsData } from "@/constants/elements_data";
-import { periodGuideCells, groupGuideCells } from "@/constants/guide_data";
+import ElementCell from "@/app/ui/element-cell";
+import GuideCell from "@/app/ui/guide-cell";
+import { elementsData } from "@/app/lib/elements-data";
+import { periodGuideCells, groupGuideCells } from "@/app/lib/guide-data";
 import styles from "./styles.module.css";
 
 export default function PeriodicTable() {

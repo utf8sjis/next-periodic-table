@@ -1,14 +1,14 @@
 import clsx from "clsx";
 
-import { getElementDataBySymbol } from "@/utils/elements_data";
-import type { ElementData } from "@/constants/elements_data";
+import { getElementDataBySymbol } from "@/app/lib/utils";
+import type { ElementData } from "@/app/lib/elements-data";
 import styles from "./styles.module.css";
-import gridRow from "@/styles/grid_row.module.css";
-import gridColumn from "@/styles/grid_column.module.css";
-import textColor from "@/styles/text_color.module.css";
-import bgColor from "@/styles/bg_color.module.css";
-import borderColor from "@/styles/border_color.module.css";
-import fontFamily from "@/styles/font_family.module.css";
+import gridRow from "@/app/styles/grid_row.module.css";
+import gridColumn from "@/app/styles/grid_column.module.css";
+import textColor from "@/app/styles/text_color.module.css";
+import bgColor from "@/app/styles/bg_color.module.css";
+import borderColor from "@/app/styles/border_color.module.css";
+import fontFamily from "@/app/styles/font_family.module.css";
 
 interface ElementCellProps {
   element: ElementData;

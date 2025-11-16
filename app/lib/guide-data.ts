@@ -1,6 +1,13 @@
-import { Cell } from "@/types/cell";
+export type GuideCell = {
+  key: string;
+  display: string;
+  style: {
+    row: number;
+    column: number;
+  };
+};
 
-export const periodGuideCells: Cell[] = [
+export const periodGuideCells: GuideCell[] = [
   { key: "period-1", display: "1", style: { row: 2, column: 1 } },
   { key: "period-2", display: "2", style: { row: 3, column: 1 } },
   { key: "period-3", display: "3", style: { row: 4, column: 1 } },
@@ -10,7 +17,7 @@ export const periodGuideCells: Cell[] = [
   { key: "period-7", display: "7", style: { row: 8, column: 1 } },
 ];
 
-export const groupGuideCells: Cell[] = [
+export const groupGuideCells: GuideCell[] = [
   { key: "group-1", display: "1", style: { row: 1, column: 2 } },
   { key: "group-2", display: "2", style: { row: 2, column: 3 } },
   { key: "group-3", display: "3", style: { row: 4, column: 4 } },

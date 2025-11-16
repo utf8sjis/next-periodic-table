@@ -1,5 +1,5 @@
-import { elementsData } from "@/constants/elements_data";
-import type { ElementData } from "@/constants/elements_data";
+import { elementsData } from "@/app/lib/elements-data";
+import type { ElementData } from "@/app/lib/elements-data";
 
 export function getElementDataBySymbol(symbol: string): ElementData {
   const element = elementsData.find(element => element.symbol === symbol);

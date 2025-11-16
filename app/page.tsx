@@ -1,4 +1,4 @@
-import PeriodicTable from "@/components/periodic_table";
+import PeriodicTable from "@/app/ui/periodic-table";
 import styles from "./page.module.css";
 
 export default function Home() {
