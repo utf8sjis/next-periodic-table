@@ -1,20 +1,23 @@
-export type CategoryId =
-  | "h"
-  | "he"
-  | "li"
-  | "be"
-  | "b"
-  | "c"
-  | "n"
-  | "o"
-  | "f"
-  | "ca"
-  | "zn"
-  | "fe"
-  | "pt"
-  | "la"
-  | "ac"
-  | "trans";
+export const CategoryId = {
+  Hydrogen: "h",
+  NobleGas: "he",
+  AlkaliMetal: "li",
+  OtherMetal: "be",
+  BoronGroup: "b",
+  CarbonGroup: "c",
+  Pnictogen: "n",
+  Chalcogen: "o",
+  Halogen: "f",
+  AlkalineEarth: "ca",
+  ZincGroup: "zn",
+  IronGroup: "fe",
+  PlatinumGroup: "pt",
+  Lanthanide: "la",
+  Actinide: "ac",
+  TransitionMetal: "trans",
+} as const;
+
+export type CategoryId = (typeof CategoryId)[keyof typeof CategoryId];
 
 export type ElementData = Readonly<{
   number: number;

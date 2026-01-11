@@ -2,6 +2,7 @@ import clsx from "clsx";
 
 import { getElementDataBySymbol } from "@/app/lib/utils";
 import type { ElementData } from "@/app/lib/elements-data";
+import { CategoryId } from "@/app/lib/elements-data";
 import styles from "./styles.module.css";
 import gridRow from "@/app/styles/grid_row.module.css";
 import gridColumn from "@/app/styles/grid_column.module.css";
@@ -19,11 +20,11 @@ function getGridClasses(element: ElementData): string[] {
   let colOffset = 1;
 
   switch (element.categoryId) {
-    case "la":
+    case CategoryId.Lanthanide:
       rowOffset = 3;
       colOffset = element.number - getElementDataBySymbol("La").number + 1;
       break;
-    case "ac":
+    case CategoryId.Actinide:
       rowOffset = 3;
       colOffset = element.number - getElementDataBySymbol("Ac").number + 1;
       break;
@@ -39,7 +40,7 @@ export default function ElementCell({ element }: ElementCellProps) {
   const classes = clsx(
     styles.base,
     ...getGridClasses(element),
-    textColor[element.categoryId === "h" ? "h-content" : "content"],
+    textColor[element.categoryId === CategoryId.Hydrogen ? "h-content" : "content"],
     bgColor[element.categoryId],
     borderColor[element.categoryId],
     fontFamily.zhTW
