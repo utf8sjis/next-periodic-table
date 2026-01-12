@@ -8,10 +8,10 @@ export default function PeriodicTable() {
   return (
     <div className={styles.base}>
       {periodGuideCells.map(cell => (
-        <GuideCell key={cell.key} cell={cell} />
+        <GuideCell key={`${cell.type}-${cell.display}`} cell={cell} />
       ))}
       {groupGuideCells.map(cell => (
-        <GuideCell key={cell.key} cell={cell} />
+        <GuideCell key={`${cell.type}-${cell.display}`} cell={cell} />
       ))}
       {elementsData.map(element => (
         <ElementCell key={element.number} element={element} />

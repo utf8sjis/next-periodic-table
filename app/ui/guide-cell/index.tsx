@@ -9,9 +9,12 @@ interface GuideCellProps {
   cell: GuideCell;
 }
 
-export default function GuideCell({ cell: { display, style } }: GuideCellProps) {
+export default function GuideCell({ cell }: GuideCellProps) {
+  const { type, display, style } = cell;
+
   const classes = clsx(
     styles.base,
+    type === "period" ? styles.period : styles.group,
     gridRow[`start${style.row}`],
     gridColumn[`start${style.column}`]
   );
