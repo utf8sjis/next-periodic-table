@@ -4,7 +4,11 @@ import { elementsData } from "@/app/lib/elements-data";
 import { periodGuideCells, groupGuideCells } from "@/app/lib/guide-data";
 import styles from "./styles.module.css";
 
-export default function PeriodicTable() {
+interface PeriodicTableProps {
+  onElementClick: (symbol: string) => void;
+}
+
+export default function PeriodicTable({ onElementClick }: PeriodicTableProps) {
   return (
     <div className={styles.base}>
       {periodGuideCells.map(cell => (
@@ -14,7 +18,7 @@ export default function PeriodicTable() {
         <GuideCell key={`${cell.type}-${cell.display}`} cell={cell} />
       ))}
       {elementsData.map(element => (
-        <ElementCell key={element.number} element={element} />
+        <ElementCell key={element.number} element={element} onElementClick={onElementClick} />
       ))}
     </div>
   );

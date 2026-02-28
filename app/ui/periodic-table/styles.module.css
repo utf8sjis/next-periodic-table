@@ -1,9 +1,9 @@
 .base {
   display: grid;
-  grid-template-columns: repeat(19, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: 0.5fr repeat(18, 1fr) 0.5fr;
+  grid-template-rows: 0.5fr repeat(9, 1fr);
   gap: 8px;
   margin: 0 auto;
   width: max-content;
-  padding: 40px 80px;
+  padding: 40px 20px;
 }

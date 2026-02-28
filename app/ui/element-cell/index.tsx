@@ -13,6 +13,7 @@ import fontFamily from "@/app/styles/font_family.module.css";
 
 interface ElementCellProps {
   element: ElementData;
+  onElementClick: (symbol: string) => void;
 }
 
 function getGridClasses(element: ElementData): string[] {
@@ -36,7 +37,7 @@ function getGridClasses(element: ElementData): string[] {
   ];
 }
 
-export default function ElementCell({ element }: ElementCellProps) {
+export default function ElementCell({ element, onElementClick }: ElementCellProps) {
   const classes = clsx(
     styles.base,
     ...getGridClasses(element),
@@ -46,9 +47,13 @@ export default function ElementCell({ element }: ElementCellProps) {
     fontFamily.zhTW
   );
 
+  const handleClick = () => {
+    onElementClick(element.symbol);
+  };
+
   return (
-    <div className={classes}>
+    <button className={classes} onClick={handleClick} aria-label={element.name.ja.display}>
       <div className={styles.display}>{element.name.zh.tw.display}</div>
-    </div>
+    </button>
   );
 }
