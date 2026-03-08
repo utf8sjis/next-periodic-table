@@ -4,11 +4,9 @@ import { getElementDataBySymbol } from "@/app/lib/utils";
 import type { ElementData } from "@/app/lib/elements-data";
 import { CategoryId } from "@/app/lib/elements-data";
 import styles from "./styles.module.css";
+import periodicAccent from "@/app/styles/periodic_accent.module.css";
 import gridRow from "@/app/styles/grid_row.module.css";
 import gridColumn from "@/app/styles/grid_column.module.css";
-import textColor from "@/app/styles/text_color.module.css";
-import bgColor from "@/app/styles/bg_color.module.css";
-import borderColor from "@/app/styles/border_color.module.css";
 import fontFamily from "@/app/styles/font_family.module.css";
 
 interface ElementCellProps {
@@ -41,9 +39,7 @@ export default function ElementCell({ element, onElementClick }: ElementCellProp
   const classes = clsx(
     styles.base,
     ...getGridClasses(element),
-    textColor[element.categoryId === CategoryId.Hydrogen ? "h-content" : "content"],
-    bgColor[element.categoryId],
-    borderColor[element.categoryId],
+    periodicAccent[element.categoryId],
     fontFamily.zhTW
   );
 

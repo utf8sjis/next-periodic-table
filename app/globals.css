@@ -52,6 +52,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Source Han Sans HK";
+  src:
+    url("/fonts/source-han-sans/SourceHanSansHK-Light_Subset.woff2") format("woff2"),
+    url("/fonts/source-han-sans/SourceHanSansHK-Light_Subset.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
 :root {
   --background: var(--color-gensokanji-white);
   --foreground: var(--color-gensokanji-midnight);

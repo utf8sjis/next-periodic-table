@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+.playwright-mcp
+.vscode
+.agent_workflow
+.github/copilot-instructions.md
 
 # debug
 npm-debug.log*
