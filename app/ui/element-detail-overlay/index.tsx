@@ -57,19 +57,25 @@ export default function ElementDetailOverlay({
     <div className={styles.overlay} onClick={handleBackdropClick}>
       <div
         className={clsx(
-          styles.content,
+          styles.overlayContent,
           periodicAccent[selectedElement.categoryId],
           ubuntu.className
         )}
       >
         <button className={styles.closeButton} onClick={onClose} aria-label="Close" />
 
-        <div className={styles.topRow}>
-          <div className={styles.symbolRow}>
+        <div className={styles.detailGrid}>
+          <div className={styles.symbolArea}>
             <span className={styles.atomicNumber}>{selectedElement.number}</span>
             <span className={styles.symbol}>{selectedElement.symbol}</span>
           </div>
-          <MiniPeriodicTable selectedElement={selectedElement} />
+          <div className={styles.miniTableArea}>
+            <MiniPeriodicTable selectedElement={selectedElement} />
+          </div>
+          <div className={styles.nameArea}>
+            <div className={styles.nameJa}>{selectedElement.name.ja.display}</div>
+            <div className={styles.nameEn}>{selectedElement.name.en.display}</div>
+          </div>
         </div>
       </div>
     </div>

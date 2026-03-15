@@ -21,7 +21,7 @@
   overflow-y: auto;
 }
 
-.content {
+.overlayContent {
   background: color-mix(
     in srgb,
     color-mix(in srgb, var(--color-gensokanji-midnight) 85%, var(--color-periodic-accent)) 90%,
@@ -81,22 +81,67 @@
   transform: rotate(-90deg);
 }
 
-/* ---- Top row (symbol + mini periodic table) ---- */
+/* ---- Detail grid (symbol + mini periodic table) ---- */
 
-.topRow {
-  display: flex;
-  align-items: flex-end;
+.detailGrid {
+  display: grid;
+  grid-template-areas:
+    "symbol table"
+    "name name";
+  grid-template-columns: 255px auto;
+  align-items: end;
+  row-gap: 0;
 }
 
-/* ---- Symbol ---- */
+@media (max-width: 860px) {
+  .detailGrid {
+    grid-template-areas:
+      "table table"
+      "symbol name";
+    grid-template-columns: auto 1fr;
+    align-items: end;
+    gap: 16px;
+  }
 
-.symbolRow {
+  .symbolArea {
+    padding-bottom: 0;
+  }
+}
+
+/* ---- Mini periodic table area ---- */
+
+.miniTableArea {
+  grid-area: table;
+}
+
+/* ---- Name area ---- */
+
+.nameArea {
+  grid-area: name;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  color: var(--color-gensokanji-white);
+}
+
+.nameJa {
+  font-size: 28px;
+}
+
+.nameEn {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* ---- Symbol area ---- */
+
+.symbolArea {
+  grid-area: symbol;
   display: flex;
   align-items: baseline;
   gap: 6px;
   /* offset for the bottom edge of the mini periodic table */
   padding-bottom: 7px;
-  width: 255px;
   color: var(--color-gensokanji-white);
 }
 
