@@ -87,24 +87,19 @@
   display: grid;
   grid-template-areas:
     "symbol table"
-    "name name";
+    "name   han";
   grid-template-columns: 255px auto;
   align-items: end;
-  row-gap: 0;
-}
+  gap: 10px 0;
 
-@media (max-width: 860px) {
-  .detailGrid {
+  @media (width <= 860px) {
     grid-template-areas:
-      "table table"
-      "symbol name";
+      "table  table"
+      "symbol name"
+      "han    han";
     grid-template-columns: auto 1fr;
     align-items: end;
     gap: 16px;
-  }
-
-  .symbolArea {
-    padding-bottom: 0;
   }
 }
 
@@ -124,13 +119,111 @@
   color: var(--color-gensokanji-white);
 }
 
+/* ---- Han area ---- */
+
+.hanArea {
+  grid-area: han;
+  display: flex;
+  gap: 10px;
+  justify-self: center;
+
+  @media (width <= 860px) {
+    justify-self: stretch;
+  }
+}
+
+.hanItem {
+  display: grid;
+  grid-template-columns: 15px auto 15px;
+  grid-template-rows: 20px auto 20px auto;
+  grid-template-areas:
+    ". pinyin  ."
+    ". char    bopomofo"
+    ". unicode ."
+    ". label   .";
+  align-items: center;
+  justify-items: center;
+  gap: 10px 0;
+  color: var(--color-gensokanji-white);
+
+  @media (width <= 860px) {
+    flex: 1;
+    padding: 0 10px;
+  }
+}
+
+.hanDivider {
+  width: 1px;
+  background-color: color-mix(in srgb, var(--color-gensokanji-white) 10%, transparent);
+}
+
+.hanPinyin {
+  grid-area: pinyin;
+  font-size: 15px;
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+.hanCharRow {
+  grid-area: char;
+}
+
+.hanChar {
+  font-size: 90px;
+  line-height: 1;
+  font-weight: 100;
+  opacity: 0.8;
+  display: inline-block;
+  transform: translateY(-5px);
+
+  @media (width <= 860px) {
+    font-size: 54px;
+  }
+}
+
+.hanBopomofo {
+  grid-area: bopomofo;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 15px;
+  letter-spacing: -4px;
+  opacity: 0.5;
+}
+
+.hanBopomofoFinal {
+  position: relative;
+  display: inline-block;
+}
+
+.hanBopomofoTone {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+}
+
+.hanUnicode {
+  grid-area: unicode;
+  font-size: 15px;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
+}
+
+.hanLabel {
+  grid-area: label;
+  font-size: 12px;
+  opacity: 0.35;
+  letter-spacing: 1px;
+}
+
 .nameJa {
   font-size: 28px;
+  opacity: 0.8;
 }
 
 .nameEn {
   font-size: 18px;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 /* ---- Symbol area ---- */
@@ -143,6 +236,10 @@
   /* offset for the bottom edge of the mini periodic table */
   padding-bottom: 7px;
   color: var(--color-gensokanji-white);
+
+  @media (width <= 860px) {
+    padding-bottom: 0;
+  }
 }
 
 .symbol {

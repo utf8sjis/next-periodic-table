@@ -27,6 +27,7 @@
 .vscode
 .agent_workflow
 .github/copilot-instructions.md
+.github/instructions
 
 # debug
 npm-debug.log*
