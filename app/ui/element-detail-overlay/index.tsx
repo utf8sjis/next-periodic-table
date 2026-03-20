@@ -102,27 +102,24 @@ export default function ElementDetailOverlay({
           <div className={styles.hanArea}>
             <div className={clsx(styles.hanItem, fontFamily.zhCN)}>
               <span className={styles.hanPinyin}>{selectedElement.name.zh.cn.pinyin}</span>
-              <div className={styles.hanCharRow}>
-                <span className={styles.hanChar}>{selectedElement.name.zh.cn.display}</span>
-              </div>
+              <span className={styles.hanChar}>{selectedElement.name.zh.cn.display}</span>
               <span className={styles.hanUnicode}>U+{selectedElement.name.zh.cn.unicode}</span>
               <span className={styles.hanLabel}>Mainland China</span>
             </div>
             <div className={styles.hanDivider} />
             <div className={clsx(styles.hanItem, fontFamily.zhTW)}>
               <span className={styles.hanPinyin}>{selectedElement.name.zh.tw.pinyin}</span>
-              <div className={styles.hanCharRow}>
-                <span className={styles.hanChar}>{selectedElement.name.zh.tw.display}</span>
-              </div>
-              <BopomofoDisplay bopomofo={selectedElement.name.zh.tw.bopomofo} />
+              <span className={styles.hanChar}>
+                {selectedElement.name.zh.tw.display}
+                <BopomofoDisplay bopomofo={selectedElement.name.zh.tw.bopomofo} />
+              </span>
               <span className={styles.hanUnicode}>U+{selectedElement.name.zh.tw.unicode}</span>
               <span className={styles.hanLabel}>Taiwan</span>
             </div>
             <div className={styles.hanDivider} />
             <div className={clsx(styles.hanItem, fontFamily.zhHK)}>
-              <div className={styles.hanCharRow}>
-                <span className={styles.hanChar}>{selectedElement.name.zh.hk.display}</span>
-              </div>
+              <span className={styles.hanPinyin}></span>
+              <span className={styles.hanChar}>{selectedElement.name.zh.hk.display}</span>
               <span className={styles.hanUnicode}>U+{selectedElement.name.zh.hk.unicode}</span>
               <span className={styles.hanLabel}>Hong Kong</span>
             </div>
