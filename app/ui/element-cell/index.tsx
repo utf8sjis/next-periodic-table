@@ -17,15 +17,21 @@ interface ElementCellProps {
 function getGridClasses(element: ElementData): string[] {
   let rowOffset = 1;
   let colOffset = 1;
+  const lanthanum = getElementDataBySymbol("La");
+  const actinium = getElementDataBySymbol("Ac");
+
+  if (!lanthanum || !actinium) {
+    throw new Error("Periodic table base elements (La/Ac) are missing");
+  }
 
   switch (element.categoryId) {
     case CategoryId.Lanthanide:
       rowOffset = 3;
-      colOffset = element.number - getElementDataBySymbol("La").number + 1;
+      colOffset = element.number - lanthanum.number + 1;
       break;
     case CategoryId.Actinide:
       rowOffset = 3;
-      colOffset = element.number - getElementDataBySymbol("Ac").number + 1;
+      colOffset = element.number - actinium.number + 1;
       break;
   }
 

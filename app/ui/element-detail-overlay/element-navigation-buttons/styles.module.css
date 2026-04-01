@@ -1,0 +1,62 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.navigationContainer {
+  position: absolute;
+  bottom: -56px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  animation: slideIn 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navButton {
+  background: transparent;
+  border: none;
+  padding: 2px 4px;
+  width: 86px;
+  color: color-mix(in srgb, var(--color-gensokanji-white) 70%, transparent);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 22px;
+  transition:
+    color 0.2s,
+    transform 0.15s;
+
+  &:not(:disabled):hover {
+    color: var(--color-gensokanji-white);
+    transform: scale(1.06);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.navSymbol {
+  width: 30px;
+  text-align: center;
+}
+
+.navSymbolPlaceholder {
+  visibility: hidden;
+}
