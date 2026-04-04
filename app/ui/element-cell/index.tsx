@@ -1,12 +1,10 @@
 import clsx from "clsx";
 
-import { getElementDataBySymbol } from "@/app/lib/utils";
 import type { ElementData } from "@/app/lib/elements-data";
 import { CategoryId } from "@/app/lib/elements-data";
+import { AC_NUMBER, LA_NUMBER } from "@/app/lib/constants";
 import styles from "./styles.module.css";
 import periodicAccent from "@/app/styles/periodic_accent.module.css";
-import gridRow from "@/app/styles/grid_row.module.css";
-import gridColumn from "@/app/styles/grid_column.module.css";
 import fontFamily from "@/app/styles/font_family.module.css";
 
 interface ElementCellProps {
@@ -14,47 +12,37 @@ interface ElementCellProps {
   onElementClick: (symbol: string) => void;
 }
 
-function getGridClasses(element: ElementData): string[] {
-  let rowOffset = 1;
-  let colOffset = 1;
-  const lanthanum = getElementDataBySymbol("La");
-  const actinium = getElementDataBySymbol("Ac");
-
-  if (!lanthanum || !actinium) {
-    throw new Error("Periodic table base elements (La/Ac) are missing");
+function getGridRow(el: ElementData): number {
+  if (el.categoryId === CategoryId.Lanthanide || el.categoryId === CategoryId.Actinide) {
+    // guide label offset (1) + f-block offset (2) + period number
+    return 3 + el.period;
   }
+  // guide label offset + period number
+  return 1 + el.period;
+}
 
-  switch (element.categoryId) {
-    case CategoryId.Lanthanide:
-      rowOffset = 3;
-      colOffset = element.number - lanthanum.number + 1;
-      break;
-    case CategoryId.Actinide:
-      rowOffset = 3;
-      colOffset = element.number - actinium.number + 1;
-      break;
-  }
-
-  return [
-    gridRow[`start${element.period + rowOffset}`],
-    gridColumn[`start${element.group + colOffset}`],
-  ];
+function getGridColumn(el: ElementData): number {
+  // guide label offset + group 3 + lanthanide/actinide index
+  if (el.categoryId === CategoryId.Lanthanide) return 1 + el.group + el.number - LA_NUMBER;
+  if (el.categoryId === CategoryId.Actinide) return 1 + el.group + el.number - AC_NUMBER;
+  // guide label offset + group number
+  return 1 + el.group;
 }
 
 export default function ElementCell({ element, onElementClick }: ElementCellProps) {
-  const classes = clsx(
-    styles.base,
-    ...getGridClasses(element),
-    periodicAccent[element.categoryId],
-    fontFamily.zhTW
-  );
+  const classes = clsx(styles.base, periodicAccent[element.categoryId], fontFamily.zhTW);
 
   const handleClick = () => {
     onElementClick(element.symbol);
   };
 
   return (
-    <button className={classes} onClick={handleClick} aria-label={element.name.ja.display}>
+    <button
+      className={classes}
+      style={{ gridRowStart: getGridRow(element), gridColumnStart: getGridColumn(element) }}
+      onClick={handleClick}
+      aria-label={element.name.ja.display}
+    >
       <div className={styles.display}>{element.name.zh.tw.display}</div>
     </button>
   );
