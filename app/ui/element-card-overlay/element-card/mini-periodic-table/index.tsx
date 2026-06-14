@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { ElementData } from "@/app/lib/elements-data";
 import { CategoryId, elementsData } from "@/app/lib/elements-data";
-import { AC_NUMBER, F_BLOCK_SPAN, LA_NUMBER } from "@/app/lib/constants";
+import { acNumber, fBlockSpan, laNumber } from "@/app/lib/elements";
 import styles from "./styles.module.css";
 
 function getGridRow(el: ElementData): number {
@@ -10,10 +10,10 @@ function getGridRow(el: ElementData): number {
 
 function getGridColumn(el: ElementData): number {
   // guide label offset + group 3 + lanthanide/actinide index
-  if (el.categoryId === CategoryId.Lanthanide) return 1 + el.group + el.number - LA_NUMBER;
-  if (el.categoryId === CategoryId.Actinide) return 1 + el.group + el.number - AC_NUMBER;
+  if (el.categoryId === CategoryId.Lanthanide) return 1 + el.group + el.number - laNumber;
+  if (el.categoryId === CategoryId.Actinide) return 1 + el.group + el.number - acNumber;
   // guide label offset + group number + f-block span offset
-  if (el.group >= 3) return 1 + el.group + F_BLOCK_SPAN;
+  if (el.group >= 3) return 1 + el.group + fBlockSpan;
   // guide label offset + group number
   return 1 + el.group;
 }

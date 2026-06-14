@@ -1,17 +1,38 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { parseAsStringLiteral, useQueryState } from "nuqs";
 import clsx from "clsx";
 import PeriodicTable from "@/app/ui/periodic-table";
-import ElementCardOverlay from "@/app/ui/element-detail-overlay";
+import ElementCardOverlay from "@/app/ui/element-card-overlay";
+import QuickBar from "../quick-bar";
 import { getElementDataBySymbol } from "@/app/lib/utils";
+import {
+  defaultDisplayMode,
+  displayModeValues,
+  displayModeOptions,
+  type DisplayMode,
+} from "@/app/lib/display-mode";
 import type { ElementData } from "@/app/lib/elements-data";
+import { elementSymbols } from "@/app/lib/elements";
 import styles from "./styles.module.css";
 
 export default function PeriodicTableView() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const elementSymbol = searchParams.get("element");
+  // Manage query state
+  const [elementSymbol, setElementSymbol] = useQueryState(
+    "element",
+    parseAsStringLiteral(elementSymbols)
+  );
+  const [displayMode, setDisplayMode] = useQueryState(
+    "display_mode",
+    parseAsStringLiteral(displayModeValues).withDefault(defaultDisplayMode)
+  );
+
+  // Define handlers
+  const handleElementClick = (symbol: string) => setElementSymbol(symbol);
+  const handleClose = () => setElementSymbol(null);
+  const handleDisplayModeChange = (newDisplayMode: DisplayMode) => {
+    setDisplayMode(newDisplayMode);
+  };
 
   // Get selected element data
   let selectedElement: ElementData | null = null;
@@ -19,21 +40,21 @@ export default function PeriodicTableView() {
     selectedElement = getElementDataBySymbol(elementSymbol);
   }
 
-  // Handle element click
-  const handleElementClick = (symbol: string) => {
-    router.push(`?element=${symbol}`);
-  };
-
-  // Handle overlay close
-  const handleClose = () => {
-    router.push("/");
-  };
-
   return (
     <div>
-      <main className={clsx(styles.main, selectedElement && styles.blurred)}>
-        <PeriodicTable onElementClick={handleElementClick} />
+      {/* Content layer: toolbar and table, made inert while an overlay is open */}
+      <main className={clsx(selectedElement && styles.inertMain)}>
+        <QuickBar
+          displayMode={displayMode}
+          onDisplayModeChange={handleDisplayModeChange}
+          options={displayModeOptions}
+        />
+        <div className={styles.tableWrapper}>
+          <PeriodicTable onElementClick={handleElementClick} displayMode={displayMode} />
+        </div>
       </main>
+
+      {/* Overlay layer: modal */}
       <ElementCardOverlay
         selectedElement={selectedElement}
         onClose={handleClose}

@@ -21,18 +21,6 @@ export default function ElementCardOverlay({
   onNavigate,
   onClose,
 }: ElementCardOverlayProps) {
-  // Lock body scroll when overlay is open
-  useEffect(() => {
-    if (selectedElement) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
-  }, [selectedElement]);
-
   // Close on ESC key
   useEffect(() => {
     if (!selectedElement) return;
@@ -58,7 +46,7 @@ export default function ElementCardOverlay({
   };
 
   return (
-    <div className={styles.overlay} onClick={handleBackdropClick}>
+    <div className={styles.overlay} onClick={handleBackdropClick} role="dialog" aria-modal="true">
       <div
         className={clsx(
           styles.overlayContent,
