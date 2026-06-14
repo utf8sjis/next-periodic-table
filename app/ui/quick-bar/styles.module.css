@@ -12,7 +12,7 @@
 }
 
 .island {
-  padding: 8px;
+  padding: 8px 0;
   background: color-mix(in srgb, var(--background) 70%, transparent);
   border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
   border-radius: 18px;
@@ -20,16 +20,22 @@
   box-shadow:
     0 10px 30px color-mix(in srgb, #000 22%, transparent),
     inset 0 0 0 1px color-mix(in srgb, var(--foreground) 5%, transparent);
-  overflow-x: auto;
-  scrollbar-width: none;
+  overflow: hidden;
 }
 
 .quickTitle {
+  margin-left: 8px;
   padding: 6px 14px 4px;
   color: color-mix(in srgb, var(--foreground) 40%, transparent);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.2em;
+}
+
+.modeButtonsWrapper {
+  padding: 0 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .modeButtons {
